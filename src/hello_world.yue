@@ -1,0 +1,28 @@
+import Gtk, Granite, Handy from require "lgi"
+
+Handy.init!
+
+window = Gtk.Window {
+    title: "Yuescript GTK"
+    default_width: 400
+    default_height: 300
+    on_destroy: Gtk.main_quit
+}
+
+accel_label = Granite.AccelLabel {
+    label: "Hello World"
+}
+
+titlebar = Handy.TitleBar {}
+headerbar = Handy.HeaderBar {}
+
+headerbar\set_title "Yuescript GTK Handy"
+titlebar\add headerbar
+
+with window
+    \set_titlebar titlebar
+    \add accel_label
+    \show_all!
+
+Gtk.main!
+
